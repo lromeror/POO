@@ -1,0 +1,9 @@
+ec\edu\espol\classes\Inscripcion.class
+ec\edu\espol\classes\Miembro_jurado.class
+ec\edu\espol\classes\Evaluacion.class
+ec\edu\espol\classes\Concurso.class
+ec\edu\espol\classes\Dueno.class
+ec\edu\espol\classes\Premio.class
+ec\edu\espol\classes\Mascota.class
+ec\edu\espol\classes\Criterio.class
+ec\edu\espol\competenciamascota\CompetenciaMascota.class
