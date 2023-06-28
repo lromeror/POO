@@ -90,10 +90,17 @@ public class Juego {
                     this.lineaJuego.add(otrFicha);
             }
         }
-        if (!(f  instanceof FichaComodin)) {
-            if(this.lineaJuego.size() == 0){
+        if (this.lineaJuego.size()==0) {
+            this.lineaJuego.add(f);
+        }
+        
+        if ((f.getLado2()==this.lineaJuego.get(0).getLado1())||(f.getLado1()==this.lineaJuego.get(this.lineaJuego.size()-1).getLado2())) {
+            if (f.getLado2()==this.lineaJuego.get(0).getLado1()) {
+                this.lineaJuego.add(0,f);
+            }else{
                 this.lineaJuego.add(f);
             }
         }
+        return false;
     }
 }
