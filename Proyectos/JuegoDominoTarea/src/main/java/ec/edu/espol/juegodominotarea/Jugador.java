@@ -23,18 +23,10 @@ public class Jugador {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public ArrayList<Ficha> getManos() {
         return mano;
     }
 
-    public void setManos(ArrayList<Ficha> mano) {
-        this.mano = mano;
-    }
-    
     public Ficha getFicha(int indice){
        int rangoLista=this.mano.size()-1;
         if ((indice>rangoLista) || (indice<0)) {
