@@ -69,35 +69,35 @@ public class Juego {
                 if (pos.equals("Inicio")) {
                     FichaComodin otrFicha = (FichaComodin) f;
                     System.out.print("Ingrese el valor del lado 1");
-                    int lado1=input.nextInt();
+                    int lado1 = input.nextInt();
                     otrFicha.setLado1(lado1);
                     this.lineaJuego.add(0, otrFicha);
                 } else if (pos.equals("Fin")) {
                     FichaComodin otrFicha = (FichaComodin) f;
                     System.out.print("Ingrese el valor del lado 2");
-                    int lado2=input.nextInt();
+                    int lado2 = input.nextInt();
                     otrFicha.setLado2(lado2);
                     this.lineaJuego.add(otrFicha);
                 }
-            }else{
+            } else {
                 FichaComodin otrFicha = (FichaComodin) f;
                 System.out.print("Ingrese el valor del lado 1");
-                    int lado1=input.nextInt();
-                    otrFicha.setLado1(lado1);
+                int lado1 = input.nextInt();
+                otrFicha.setLado1(lado1);
                 System.out.print("Ingrese el valor del lado 2");
-                    int lado2=input.nextInt();       
-                    otrFicha.setLado2(lado2);
-                    this.lineaJuego.add(otrFicha);
+                int lado2 = input.nextInt();
+                otrFicha.setLado2(lado2);
+                this.lineaJuego.add(otrFicha);
             }
         }
-        if (this.lineaJuego.size()==0) {
+        if (this.lineaJuego.size() == 0) {
             this.lineaJuego.add(f);
         }
-        
-        if ((f.getLado2()==this.lineaJuego.get(0).getLado1())||(f.getLado1()==this.lineaJuego.get(this.lineaJuego.size()-1).getLado2())) {
-            if (f.getLado2()==this.lineaJuego.get(0).getLado1()) {
-                this.lineaJuego.add(0,f);
-            }else{
+
+        if ((f.getLado2() == this.lineaJuego.get(0).getLado1()) || (f.getLado1() == this.lineaJuego.get(this.lineaJuego.size() - 1).getLado2())) {
+            if (f.getLado2() == this.lineaJuego.get(0).getLado1()) {
+                this.lineaJuego.add(0, f);
+            } else if (f.getLado1() == this.lineaJuego.get(this.lineaJuego.size() - 1).getLado2()) {
                 this.lineaJuego.add(f);
             }
         }
