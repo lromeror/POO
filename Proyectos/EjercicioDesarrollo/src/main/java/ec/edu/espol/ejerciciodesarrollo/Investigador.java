@@ -22,7 +22,7 @@ public class Investigador {
     
     public boolean visitar(Lugar L){
         System.out.println(L.getPista());
-        this.tiempoGastado-=L.getTiempo();
+        this.tiempoGastado+=L.getTiempo();
         
         if (L instanceof Hotel) {
             Hotel h=(Hotel)L;
@@ -30,7 +30,7 @@ public class Investigador {
                 int diff=h.getNumPisos()-3;
                 //double tiempo=(double)(diff*12)/60;//La division en java es dependiendo el tipo de dato
                 double tiempo=(diff*12)/60.0;
-                this.tiempoGastado-=tiempo;
+                this.tiempoGastado+=tiempo;
             }
         }
         
