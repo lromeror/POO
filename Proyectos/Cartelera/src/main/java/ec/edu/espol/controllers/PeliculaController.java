@@ -30,8 +30,8 @@ public class PeliculaController implements Initializable {
         // TODO
     }    
     
-    public void setPeli(Pelicula P){
-        this.pelicula=P;
-        vpeli.getChildren().add(new Text(P.getTitulo()));
+    public void setPeli(Pelicula p){
+        this.pelicula=p;
+        vpeli.getChildren().add(new Text(p.getTitulo()));
     }
 }
