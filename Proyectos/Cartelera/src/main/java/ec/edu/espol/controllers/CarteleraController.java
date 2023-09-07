@@ -71,34 +71,32 @@ public class CarteleraController implements Initializable {
 
     @FXML
     private void iniciar(MouseEvent event) {
-        HiloIn h =new HiloIn();
-        Thread t1= new Thread(h);
+        HiloIn h = new HiloIn();
+        Thread t1 = new Thread(h);
         t1.start();
-        
+
     }
-    
-    
-    
-    public class HiloIn implements Runnable{
+
+    public class HiloIn implements Runnable {
 
         @Override
         public void run() {
-           while(true){
-               Platform.runLater(new Runnable() {
-                   @Override
-                   public void run() {
-                      titulo.setText("");
-                       try {
-                           Thread.sleep(1000);
-                       } catch (InterruptedException ex) {
-                           ex.printStackTrace();
-                       }
-                      titulo.setText("SUPERCINES");
-                   }
-               });
-           }
+            while (true) {
+
+                try {
+                    Platform.runLater(() -> {
+                        titulo.setText("");
+                    });
+                    Thread.sleep(1000);
+                    Platform.runLater(() -> {
+                        titulo.setText("Supercines");
+                    });
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {         
+                    ex.getStackTrace();
+                }
+            }
         }
-        
     }
 
     @FXML

@@ -27,25 +27,25 @@ public class Jugador {
         return mano;
     }
 
-    public Ficha getFicha(int indice){
-       int rangoLista=this.mano.size()-1;
-        if ((indice>rangoLista) || (indice<0)) {
+    public Ficha getFicha(int indice) {
+        int rangoLista = this.mano.size() - 1;
+        if ((indice > rangoLista) || (indice < 0)) {
             return null;
         }
-        return  this.mano.get(indice);
+        return this.mano.get(indice);
     }
-    
-    public void removerFicha(Ficha F){
+
+    public void removerFicha(Ficha F) {
         this.mano.remove(F);
-    }   
-    
-    public void imprimirMano(){
-        
+    }
+
+    public void imprimirMano() {
+
         for (int i = 0; i < this.mano.size(); i++) {
-            if (i!=this.mano.size()-1) {
-                System.out.print(this.mano.get(i)+"-");
-            }else
-            System.out.println(this.mano.get(i));
+            if (i != this.mano.size() - 1) {
+                System.out.print(this.mano.get(i) + "-");
+            } else
+                System.out.println(this.mano.get(i));
         }
     }
 }

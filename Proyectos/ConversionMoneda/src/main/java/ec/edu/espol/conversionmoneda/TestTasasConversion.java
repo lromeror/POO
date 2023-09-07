@@ -29,6 +29,8 @@ public class TestTasasConversion implements Serializable {
         tasas.add(new TasaConversion(monedas.get(1),monedas.get(0),1.11));
         tasas.add(new TasaConversion(monedas.get(0),monedas.get(2),5.9));
         tasas.add(new TasaConversion(monedas.get(2),monedas.get(0),0.16));
+        tasas.add(new TasaConversion(monedas.get(1),monedas.get(2),4434.60));
+        tasas.add(new TasaConversion(monedas.get(2),monedas.get(1),0.00023));
         try(ObjectOutputStream ob = 
                 new ObjectOutputStream(new FileOutputStream("tasas.dat")) ){
             ob.writeObject(tasas);

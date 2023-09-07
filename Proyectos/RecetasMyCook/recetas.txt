@@ -1,0 +1,2 @@
+Huevos revueltos,4 huevos |10 g Aceite de oliva |10 ml leche | 0.5 c/c Sal,7,img/temp.jpg-Calentando dispositivo-1;img/batir.jpg-Batiendo ingredientes-3;img/cocinar.png-Cocinando receta-3
+Pancake,1 huevo |100 g harina |100 ml leche,8,img/temp.jpg-Calentando dispositivo-1;img/mezclar.png-Mezclando ingredientes-4;img/cocinar.png-Cocinando receta-3
