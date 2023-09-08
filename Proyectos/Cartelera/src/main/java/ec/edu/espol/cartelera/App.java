@@ -68,6 +68,7 @@ public class App extends Application {
 ////        h1.run();//Primero ejecutate esto en el hilo principal luego crea los parelelos
 ////         h2.start();
 ////        h3.start();
+
 //            h2.start();
 //            h3.start();//Aqui si van a competir todos porque primero crea
 //            h1.run();

@@ -76,13 +76,15 @@ public class CarteleraController implements Initializable {
         t1.start();
 
     }
-
-    public class HiloIn implements Runnable {
-
+    /*Sin embargo, en algunos casos, es posible que no necesites acceder a ninguna variable o método específico de la clase contenedora en la clase interna. 
+    Si solo deseas encapsular una cierta funcionalidad relacionada con la clase interna, puedes hacerlo sin requerir una referencia a la instancia de la clase contenedora.
+    En esos casos, puedes utilizar una clase interna no estática de manera independiente, 
+    sin necesidad de relacionarla estrechamente con la instancia de la clase contenedora. */
+    //Inner class no estatica, no importa ya que toda la funcionalidad se la hace dentro de la clase
+    public class HiloIn implements Runnable {// aqui tranquilamente podemos usar 
         @Override
         public void run() {
             while (true) {
-
                 try {
                     Platform.runLater(() -> {
                         titulo.setText("");
@@ -92,7 +94,7 @@ public class CarteleraController implements Initializable {
                         titulo.setText("Supercines");
                     });
                     Thread.sleep(1000);
-                } catch (InterruptedException ex) {         
+                } catch (InterruptedException ex) {
                     ex.getStackTrace();
                 }
             }
