@@ -40,28 +40,29 @@ public class PrimaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        ArrayList<Receta> recetas = Receta.leerReceta();
+        ArrayList<Receta> recetas = Receta.leerReceta();//Retorna recetas
 
-        HBox hbox = new HBox();
+        HBox hbox = new HBox();//Contiene por columnas las recetas
         for (Receta re : recetas) {
-            VBox v1 = new VBox();
-            Text titulo = new Text(re.getTitulo());
+            VBox v1 = new VBox();//Es el que va agregando de Forma vertical
+            Text titulo = new Text(re.getTitulo()+"\n");
+            /*
             ArrayList<Text> textsIngre = new ArrayList<>();
             for (String ingre : re.getIngredientes().split("\\|")) {
                 textsIngre.add(new Text(ingre));
-            }
+            } 
             VBox vBingr = new VBox();
-            vBingr.getChildren().addAll(textsIngre);
-
+            vBingr.getChildren().addAll(textsIngre);*/
+            Text ingred = new Text(re.getIngredientes().replace('|', '\n')+"\n");
             Text duracion = new Text("Duracion: " + Integer.toString(re.getDuracion()));
-            v1.getChildren().addAll(titulo, vBingr, duracion);
+            v1.getChildren().addAll(titulo, ingred, duracion);
             v1.addEventHandler(MouseEvent.MOUSE_CLICKED, (Event t) -> {
                 preparar(re);
             });
 
             hbox.getChildren().add(v1);
         }
-
+        hbox.setSpacing(20);
         fpRecetas.getChildren().add(hbox);
     }
 
@@ -73,7 +74,15 @@ public class PrimaryController implements Initializable {
             this.re = r;
         }
         //Moraleja para cambiar el grafo de escena es necesario usar el platforRunlater
+        //ya que es necesario cuando usamos hilos osea que no sean el principal
         //Cuando usamos el event Handler ponemos un manejador y el evento
+        
+        /*
+        En tu caso, parece que ambos hilos (HiloTiempo y HiloCrono) se ejecutan en segundo plano y actualizan la interfaz gráfica. 
+        Dado que estos hilos no se ejecutan en el hilo principal de JavaFX, 
+        es importante utilizar Platform.runLater() para las actualizaciones de la GUI, 
+        como lo estás haciendo en tu código actual.
+        */
         @Override
         public void run() {
             try {

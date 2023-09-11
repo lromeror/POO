@@ -5,7 +5,6 @@
 package ec.edu.espol.recetasmycook;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -57,15 +56,12 @@ public class Receta {
                     Paso pa = new Paso(tokenPa[0], tokenPa[1], Integer.parseInt(tokenPa[2]));
                     pasoslis.add(pa);
                 }
-
                 Receta re = new Receta(lineRe[0], lineRe[1], Integer.parseInt(lineRe[2]), pasoslis);
                 recetas.add(re);
             }
-
         } catch (IOException e) {
             e.getMessage();
         }
         return recetas;
     }
-
 }
