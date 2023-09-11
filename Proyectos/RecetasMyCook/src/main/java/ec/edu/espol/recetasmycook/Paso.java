@@ -11,10 +11,10 @@ package ec.edu.espol.recetasmycook;
 public class Paso {
     private String imagen;
     private String descripcion;
-    private int tiempo;//en segundos
+    private int tiempo;// en segundos
 
     public Paso(String imagen, String descripcion, int tiempo) {
-         this.imagen = imagen;
+        this.imagen = imagen;
         this.descripcion = descripcion;
         this.tiempo = tiempo;
 
@@ -31,6 +31,5 @@ public class Paso {
     public String getImagen() {
         return imagen;
     }
-   
-    
+
 }

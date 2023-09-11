@@ -64,27 +64,71 @@ public class PrimaryController implements Initializable {
 
         fpRecetas.getChildren().add(hbox);
     }
-    
-    
-    
-    
-    public void preparar(Receta r) {
-        vbPasos.getChildren().clear();
-        
-        
-        for (Paso pa : r.getPasos()) {
-            HBox fila = new HBox();
-            Image imag = new Image(pa.getImagen());
-            ImageView im = new ImageView(imag);
-            im.setFitHeight(50);
-            im.setFitWidth(50);
-            Text descripcon = new Text(pa.getDescripcion());
-           
-            fila.getChildren().addAll(im, descripcon);
-            
-            vbPasos.getChildren().add(fila);
+
+    public class HiloTiempo implements Runnable {
+
+        private Receta re;
+
+        public HiloTiempo(Receta r) {
+            this.re = r;
+        }
+        //Moraleja para cambiar el grafo de escena es necesario usar el platforRunlater
+        //Cuando usamos el event Handler ponemos un manejador y el evento
+        @Override
+        public void run() {
+            try {
+                for (Paso pa : re.getPasos()) {
+                    Platform.runLater(() -> {//Osea aqui desemos modificar el grafo de Escene con tiempo
+                        HBox fila = new HBox();
+                        Image imag = new Image(pa.getImagen());
+                        ImageView im = new ImageView(imag);
+                        im.setFitHeight(50);
+                        im.setFitWidth(50);
+                        Text descripcion = new Text(pa.getDescripcion());
+                        fila.getChildren().addAll(im, descripcion);
+                        vbPasos.getChildren().add(fila);
+                    });
+                    Thread.sleep(pa.getTiempo() * 1000);
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    public class HiloCrono implements Runnable {
+
+        private int seg;
+
+        public HiloCrono(int se) {
+            this.seg = se - 1;
         }
 
+        @Override
+        public void run() {
+            while (this.seg > 0) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                Platform.runLater(() -> {
+                    lblTiempo.setText(Integer.toString(this.seg--));
+                });
+            }
+        }
+    }
+
+    public void preparar(Receta r) {
+        vbPasos.getChildren().clear();
+        this.lblTiempo.setText(Integer.toString(r.getDuracion()));
+        HiloTiempo hilo1 = new HiloTiempo(r);
+        Thread th1 = new Thread(hilo1);
+        HiloCrono hilo2 = new HiloCrono(r.getDuracion());
+        Thread th2 = new Thread(hilo2);
+        th1.start();
+        th2.start();
     }
 
 }
