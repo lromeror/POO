@@ -1,0 +1,2 @@
+Ecuador|Moises Ramirez,Arquero,56000,moises.png;Piero Hincapie,Delantero,70000,piero.png
+Argentina|Lionel Messi,Delantero,800000,messi.jpg
