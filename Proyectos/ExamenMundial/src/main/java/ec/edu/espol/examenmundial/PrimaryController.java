@@ -47,7 +47,7 @@ public class PrimaryController implements Initializable {
                 for(Equipo eq:lstEquipos){//nombreEquipo, cantidadJugadores, totalPagar.
                     input.write(eq.toString()+","+eq.getJugadores().size()+","+eq.calcularTotalSueldos()+"\n");
                     Platform.runLater(()->{
-                        lblMensaje.setText(eq.toString());
+                        lblMensaje.setText("Generando nómina para equipo: "+eq.toString());
                     });
                     Thread.sleep(5000);
                 }

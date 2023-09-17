@@ -1,2 +1,0 @@
-Ecuador,2,126000.0
-Argentina,1,800000.0
